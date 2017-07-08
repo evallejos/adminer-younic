@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon  name="menu"></ion-icon>
+    </button>
+    <ion-title>Incidencias</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header color="light">
+      Tickets en bandeja de entrada
+    </ion-list-header>
+    <ion-item-sliding>
+      <ion-item *ngFor="let ticket of tickets | async">
+        <ion-avatar item-start>
+          <ion-icon name="md-checkmark-circle" margin></ion-icon>
+        </ion-avatar>
+        <h2>{{ticket.falla}}</h2>
+        <p>{{ticket.descripcion_falla}}</p>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="primary" icon-left>
+          <ion-icon name="create"></ion-icon>
+          Editar
+        </button>
+        <button ion-button (click)="verTicket()" color="secondary" icon-left>
+          <ion-icon name="text"></ion-icon>
+          Ver
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+     </ion-list>
+  <ion-fab right top>
+  <button ion-fab ion-buttom mini  color="danger"  [navPush]="crearTicket"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>

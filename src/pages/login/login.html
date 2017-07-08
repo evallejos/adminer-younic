@@ -1,0 +1,17 @@
+<img src="https://static.platzi.com/media/achievements/Badge-Ionic_1.png" />
+<h1>Bienvenido</h1>
+<ion-item-group>
+<ion-item>
+    <ion-label color="placeholder" floating margin-left>Email</ion-label>
+    <ion-input [(ngModel)]="user.email" type="email" ></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label color="placeholder" floating margin-left>Password</ion-label>
+    <ion-input [(ngModel)]="user.password" type="password" ></ion-input>
+</ion-item>
+<br>
+<ion-item padding>
+<button ion-button (tap)="login()" block>Ingresar</button>
+</ion-item>
+</ion-item-group>
