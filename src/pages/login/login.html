@@ -1,17 +1,35 @@
-<img src="https://static.platzi.com/media/achievements/Badge-Ionic_1.png" />
-<h1>Bienvenido</h1>
-<ion-item-group>
-<ion-item>
-    <ion-label color="placeholder" floating margin-left>Email</ion-label>
-    <ion-input [(ngModel)]="user.email" type="email" ></ion-input>
-</ion-item>
+<ion-content no-padding>
+  <ion-row>
+    <ion-col>
+      <img src="https://static.platzi.com/media/achievements/Badge-Ionic_1.png">
+      <h1>Adminer</h1>
+      <p>Sistema de ticket en terreno</p>
+    </ion-col>
+      <p *ngIf="loginForm.get('password').hasError('required')" color="secondary">Contraseña requerida</p>
+      <p *ngIf="loginForm.get('nombre').hasError('required')">Debe ingresar un nombre</p>
 
-<ion-item>
-    <ion-label color="placeholder" floating margin-left>Password</ion-label>
-    <ion-input [(ngModel)]="user.password" type="password" ></ion-input>
-</ion-item>
-<br>
-<ion-item padding>
-<button ion-button (tap)="login()" block>Ingresar</button>
-</ion-item>
-</ion-item-group>
+  </ion-row>
+<form [formGroup]="loginForm" (ngSubmit)="validarUsuario()" novalidate>
+  <ion-row>
+    <ion-col>
+    <ion-list inset>
+
+      <ion-item>
+        <ion-label>Rut</ion-label>
+        <ion-input type="text" formControlName="nombre" placeholder="12345678-9"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input type="password" formControlName="password" placeholder="*********"></ion-input>
+      </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+     <ion-col>
+       <button ion-button type="submit" class="login-button">Entrar</button>
+     </ion-col>
+   </ion-row>
+</form>
+</ion-content>

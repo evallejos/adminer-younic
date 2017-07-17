@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AlertController, LoadingController, NavController, MenuController} from 'ionic-angular';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {BandejaPage} from "../bandeja/bandeja";
 
 @Component({
@@ -9,38 +10,24 @@ import {BandejaPage} from "../bandeja/bandeja";
 
 export class LoginPage{
 
-    user = {"email":"", "password":""};
-    constructor(
-        private alertCtrl: AlertController,
-        public loadingCtrl: LoadingController,
-        public navCtrl: NavController,
-        public menu:MenuController
-       ){
-       this.menu.enable(false);
-       }
 
-    login = ():void=>{
-        if(this.user.email !== "" && this.user.password !== ""){
-           let loading = this.loadingCtrl.create({
-               content:'Please wait...'
-           });
-           loading.present();
-           setTimeout(()=>{
-               loading.dismiss();
-                this.navCtrl.setRoot(BandejaPage);
-           }, 1000);
+    loginForm:FormGroup;
 
-        }else{
-            let alert = this.alertCtrl.create({
-                title: 'Login',
-                subTitle : 'Usuario y/o contraseña invalida',
-                buttons:['Aceptar']
-             });
-             alert.present();
-        }
-    }
+constructor(public navCtrl: NavController,
+              private alertCtrl: AlertController,
+              public loadingCtrl: LoadingController,
+              public menu:MenuController,
+              private fb:FormBuilder) {
+              this.menu.enable(false);
+              this.loginForm = this.fb.group({
+                nombre : ['',[Validators.required]],
+                password : ['', [Validators.required, Validators.minLength(5), Validators.maxLength(8)]]
+              });
+}
 
-    signIn = ():void =>{
-        alert("Sing in")
-    }
+
+ validarUsuario(){
+   console.log(this.loginForm.value);
+ }
+
 }

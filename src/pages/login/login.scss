@@ -1,29 +1,55 @@
-page-login{
-    background:white;
-}
-h1{
-    text-align: center;
-}
-img{
-    display:block;
-    margin:auto;
-    padding-top:10%;
-}
+page-login {
 
-ion-label, .select-text {
-    margin-left: 10px;
-}
-
-ion-input, ion-select, ion-textarea {
+  .content {
     background-color: #f2f2f2;
-    padding: 5px 10px;
+  }
+
+  img{
+    width: 40%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  h1{
+    color : #1d2129;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size : 20px;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  P{
+    color : #4b4f56;
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 21px;
+    font-size: 15px;
+  }
+
+  ion-row {
+       align-items: center;
+       text-align: center;
+ }
+
+ ion-item {
+       font-family: inherit;
+       letter-spacing: inherit;
+       padding-left: 10px !important;
+       border-color: #bdc7d8;
+       border-radius: 5px;
+   }
+
+ ion-list {
+    margin: 0;
+  }
+
+  .login-button {
+    font-family: Helvetica, Arial, sans-serif;
+     width: 100%;
+     border-radius: 30px;
+     font-size: 0.9em;
+     border: 1px solid #fff;
+     background-color: #39acdc;
+ }
+
 }
-
-.item-md.item-input .item-inner {
-  border-bottom-color: transparent !important;
-
-  }
- .list-md .item-input:last-child {
-    border-bottom-color: transparent !important;
-
-  }
